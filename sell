@@ -1,0 +1,48 @@
+local Players           = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+-- wait for player & backpack
+local player   = Players.LocalPlayer
+local backpack = player:WaitForChild("Backpack")
+
+-- wait for RemoteEvent
+local sellEvent = ReplicatedStorage
+  :WaitForChild("GameEvents")
+  :WaitForChild("Sell_Inventory")
+
+-- your config
+local Config = {
+    ["Count Backpack"]     = 0,
+    ["Check Count Method"] = true,
+}
+
+local function SellFruit()
+    -- count how many items in backpack match
+    local count = 0
+    for _, item in ipairs(backpack:GetChildren()) do
+        if Config["Check Count Method"] then
+            if item.Name:find("kg") then
+                count = count + 1
+            end
+        else
+            count = count + 1
+        end
+    end
+    print("Backpack count:", count)
+
+    if count >= Config["Count Backpack"] then
+        -- ensure character & HRP exist
+        local char = player.Character or player.CharacterAdded:Wait()
+        local hrp  = char:WaitForChild("HumanoidRootPart")
+        hrp.CFrame = CFrame.new(89, 3, 0)
+        task.wait(0.1)
+        sellEvent:FireServer()
+    end
+end
+
+-- run once at startup
+SellFruit()
+
+-- re-run whenever the backpack gains or loses a child
+backpack.ChildAdded:Connect(SellFruit)
+backpack.ChildRemoved:Connect(SellFruit)
