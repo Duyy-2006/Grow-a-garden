@@ -1,0 +1,5 @@
+print('[LZ Client]:IsRun')
+client = game:GetService("Players").LocalPlayer
+for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+    client:RequestFriendship(v)
+end
