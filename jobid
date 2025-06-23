@@ -1,0 +1,7 @@
+local id = "905edbb3-3636-4f77-b49f-88373c658699"
+if game.JobId ~= id then
+    while true do:
+        game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, id)
+        wait(.1)
+    end
+end
