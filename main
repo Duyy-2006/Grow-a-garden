@@ -1,1 +1,15 @@
+local urls = {
+    "https://raw.githubusercontent.com/Duyy-2006/Grow-a-garden/refs/heads/main/cosmetic",
+    "https://raw.githubusercontent.com/Duyy-2006/Grow-a-garden/refs/heads/main/low%20fps",
+    "https://raw.githubusercontent.com/Duyy-2006/Grow-a-garden/refs/heads/main/native",
+    "https://raw.githubusercontent.com/Duyy-2006/Grow-a-garden/refs/heads/main/sell",
+}
 
+for _, url in ipairs(urls) do
+    local success, result = pcall(function()
+        local code = game:HttpGet(url)
+        return loadstring(code)()
+    end)
+    if not success then
+    end
+end
