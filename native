@@ -1,21 +1,3 @@
-soluong = 2
-local function Savetxtconfig(log)
-    log = log or 'Yummytool'
-    local filename = "Yummy.txt"
-
-    if writefile then
-        print('Kiểm Tra WriteFile')
-
-        if isfile(filename) then
-            if ValueFileReady then return end
-            print('File Đã Có Trong Workspace')
-        else
-            writefile(filename, log)
-        end
-        ValueFileReady = true
-    end
-end
-
 ReplicatedStorage = game:GetService("ReplicatedStorage")
 ModulesGame = ReplicatedStorage.Modules
 DataService = require(ModulesGame.DataService)
