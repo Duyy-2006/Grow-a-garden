@@ -19,21 +19,30 @@ local Config = {
 local function SellFruit()
     -- count how many items in backpack match
     local count = 0
+    -- ensure character is loaded once for equips
+    local char     = player.Character or player.CharacterAdded:Wait()
+    local humanoid = char:WaitForChild("Humanoid")
+
     for _, item in ipairs(backpack:GetChildren()) do
         if Config["Check Count Method"] then
             if item.Name:find("kg") then
                 count = count + 1
+
+                -- equip any Tool named "*kg*"
+                if item:IsA("Tool") then
+                    humanoid:EquipTool(item)
+                end
             end
         else
             count = count + 1
         end
     end
+
     print("Backpack count:", count)
 
     if count >= Config["Count Backpack"] then
-        -- ensure character & HRP exist
-        local char = player.Character or player.CharacterAdded:Wait()
-        local hrp  = char:WaitForChild("HumanoidRootPart")
+        -- teleport & sell
+        local hrp = char:WaitForChild("HumanoidRootPart")
         hrp.CFrame = CFrame.new(89, 3, 0)
         task.wait(0.1)
         sellEvent:FireServer()
@@ -43,6 +52,6 @@ end
 -- run once at startup
 SellFruit()
 
--- re-run whenever the backpack gains or loses a child
+-- re-run whenever the backpack changes
 backpack.ChildAdded:Connect(SellFruit)
 backpack.ChildRemoved:Connect(SellFruit)
