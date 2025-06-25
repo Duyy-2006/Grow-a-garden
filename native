@@ -1,2 +1,92 @@
-script_key="vNTZAQUDboUOsJsisqlFYTSeNGGQFRyq";
-(loadstring or load)(game:HttpGet("https://getnative.cc/script/loader"))()
+soluong = 2
+local function Savetxtconfig(log)
+    log = log or 'Yummytool'
+    local filename = "Yummy.txt"
+
+    if writefile then
+        print('Kiểm Tra WriteFile')
+
+        if isfile(filename) then
+            if ValueFileReady then return end
+            print('File Đã Có Trong Workspace')
+        else
+            writefile(filename, log)
+        end
+        ValueFileReady = true
+    end
+end
+
+ReplicatedStorage = game:GetService("ReplicatedStorage")
+ModulesGame = ReplicatedStorage.Modules
+DataService = require(ModulesGame.DataService)
+GetDataService = function(data)
+    if not DataService then return nil end     
+    local dataservicetable = DataService:GetData()
+    if data then
+        return dataservicetable and dataservicetable[data] or nil
+    end
+    return dataservicetable
+end
+Get = function(data,data1,data2)
+    if data1 == true then
+        local dataGet = GetDataService()[data]
+        local Storage = {}
+        if dataGet and typeof(dataGet) == 'table' then 
+            for i,v in pairs(dataGet) do 
+                if data2 then
+                    table.insert(Storage,tostring(i))
+                else
+                Storage[i] = v
+                end
+            end
+        end
+        return Storage
+    end
+    return nil
+end
+
+task.spawn(function()
+    while wait() do
+        CA = Get('SeedStock',true) 
+        if typeof(CA) == 'table' then
+            for i,v in pairs(CA.Stocks) do
+                if v.Stock and tonumber(v.Stock) and v.Stock > 1 then
+                for z=1,v.Stock do
+                    game:GetService("ReplicatedStorage"):WaitForChild("GameEvents"):WaitForChild("BuySeedStock"):FireServer(i)
+                end
+                end
+            end
+        end
+        wait(100)
+    end
+end)
+
+task.spawn(function()
+    while wait() do
+        CA = Get('PetEggStock',true) 
+        if typeof(CA) == 'table' then
+            for i,v in pairs(CA.Stocks) do
+                if v.Stock and tonumber(v.Stock) and v.Stock > 1 then
+                game:GetService("ReplicatedStorage"):WaitForChild("GameEvents"):WaitForChild("BuyPetEgg"):FireServer(i)
+                end
+            end
+        end
+        wait(100)
+    end
+end)
+
+task.spawn(function()
+    while wait() do
+        CA = Get('GearStock',true) 
+        if typeof(CA) == 'table' then
+            for i,v in pairs(CA.Stocks) do
+                if v.Stock and tonumber(v.Stock) and v.Stock > 1 then
+                for z=1,v.Stock do
+                    game:GetService("ReplicatedStorage"):WaitForChild("GameEvents"):WaitForChild("BuyGearStock"):FireServer(i)
+                end
+                end
+            end
+        end
+        wait(100)
+    end
+end)
