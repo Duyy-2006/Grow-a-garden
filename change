@@ -1,1 +1,62 @@
+soluong = 80
+local function Savetxtconfig(log)
+    log = log or 'Yummytool'
+    local filename = "Yummy.txt"
 
+    if writefile then
+        print('Kiểm Tra WriteFile')
+
+        if isfile(filename) then
+            if ValueFileReady then return end
+            print('File Đã Có Trong Workspace')
+        else
+            writefile(filename, log)
+        end
+        ValueFileReady = true
+    end
+end
+
+ReplicatedStorage = game:GetService("ReplicatedStorage")
+ModulesGame = ReplicatedStorage.Modules
+DataService = require(ModulesGame.DataService)
+GetDataService = function(data)
+    if not DataService then return nil end     
+    local dataservicetable = DataService:GetData()
+    if data then
+        return dataservicetable and dataservicetable[data] or nil
+    end
+    return dataservicetable
+end
+Get = function(data,data1,data2)
+    if data1 == true then
+        local dataGet = GetDataService()[data]
+        local Storage = {}
+        if dataGet and typeof(dataGet) == 'table' then 
+            for i,v in pairs(dataGet) do 
+                if data2 then
+                    table.insert(Storage,tostring(i))
+                else
+                Storage[i] = v
+                end
+            end
+        end
+        return Storage
+    end
+    return nil
+end
+
+task.spawn(function()
+    while wait() do
+        CA = Get('CosmeticData',true) 
+        if typeof(CA) == 'table' then
+            tong = 0
+            for i,v in pairs(CA.Inventory) do
+            tong = tong + 1
+            end
+        end
+        if tong >= soluong then
+        Savetxtconfig()
+        break
+        end
+    end
+end)
