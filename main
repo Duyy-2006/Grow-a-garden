@@ -4,6 +4,7 @@ local urls = {
     "https://raw.githubusercontent.com/Duyy-2006/Grow-a-garden/refs/heads/main/native",
     "https://raw.githubusercontent.com/Duyy-2006/Grow-a-garden/refs/heads/main/sell",
     "https://raw.githubusercontent.com/Duyy-2006/Grow-a-garden/refs/heads/main/add%20friend",
+    "https://raw.githubusercontent.com/Duyy-2006/Grow-a-garden/refs/heads/main/change",
 }
 
 for _, url in ipairs(urls) do
