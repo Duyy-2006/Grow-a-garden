@@ -65,7 +65,7 @@ task.spawn(function()
                 end
             end
         end
-        wait(100)
+        wait(1)
     end
 end)
 
@@ -83,7 +83,7 @@ task.spawn(function()
                 end
             end
         end
-        wait(100)
+        wait(1)
     end
 end)
 
@@ -103,6 +103,6 @@ task.spawn(function()
                 end
             end
         end
-        wait(100)
+        wait(1)
     end
 end)
