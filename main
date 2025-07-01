@@ -1,3 +1,7 @@
+local TeleportService = game:GetService("TeleportService")
+local PlaceId         = game.PlaceId
+local JobId           = game.JobId
+
 local urls = {
     "https://raw.githubusercontent.com/Duyy-2006/Grow-a-garden/refs/heads/main/cosmetic",
     "https://raw.githubusercontent.com/Duyy-2006/Grow-a-garden/refs/heads/main/low%20fps",
@@ -8,10 +12,19 @@ local urls = {
 }
 
 for _, url in ipairs(urls) do
-    local success, result = pcall(function()
+    local success, err = pcall(function()
         local code = game:HttpGet(url)
-        return loadstring(code)()
+        local fn   = loadstring(code)
+        assert(fn, "loadstring returned nil")
+        fn()
     end)
+
     if not success then
+        warn(("Error loading %q: %s – rejoining..."):format(url, tostring(err)))
+        -- teleport back to the same server
+        TeleportService:TeleportToPlaceInstance(PlaceId, JobId)
+        return
     end
 end
+
+print("All scripts loaded successfully!")
