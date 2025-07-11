@@ -1,62 +1,45 @@
-soluong = 80
-local function Savetxtconfig(log)
-    log = log or 'Yummytool'
-    local filename = "Yummy.txt"
+local SOLUONG = 70
+local ValueFileReady = false
+-- Require module và lấy DataService
+local ReplicatedStorage = game:GetService('ReplicatedStorage')
+local ModulesGame = ReplicatedStorage:WaitForChild('Modules')
+local DataService = require(ModulesGame:WaitForChild('DataService'))
+local filename = game:GetService('Players').LocalPlayer.Name .. '.txt'
 
-    if writefile then
-        print('Kiểm Tra WriteFile')
-
-        if isfile(filename) then
-            if ValueFileReady then return end
-            print('File Đã Có Trong Workspace')
-        else
-            writefile(filename, log)
-        end
-        ValueFileReady = true
+-- Lấy toàn bộ bảng data, hoặc data[key] nếu có key
+local function GetDataService(key)
+    local ok, allData = pcall(function()
+        return DataService:GetData()
+    end)
+    if not ok or type(allData) ~= 'table' then
+        return nil
     end
+    if key then
+        return allData[key]
+    end
+    return allData
 end
 
-ReplicatedStorage = game:GetService("ReplicatedStorage")
-ModulesGame = ReplicatedStorage.Modules
-DataService = require(ModulesGame.DataService)
-GetDataService = function(data)
-    if not DataService then return nil end     
-    local dataservicetable = DataService:GetData()
-    if data then
-        return dataservicetable and dataservicetable[data] or nil
-    end
-    return dataservicetable
-end
-Get = function(data,data1,data2)
-    if data1 == true then
-        local dataGet = GetDataService()[data]
-        local Storage = {}
-        if dataGet and typeof(dataGet) == 'table' then 
-            for i,v in pairs(dataGet) do 
-                if data2 then
-                    table.insert(Storage,tostring(i))
-                else
-                Storage[i] = v
-                end
-            end
-        end
-        return Storage
-    end
-    return nil
-end
-
+-- Task chạy nền, mỗi giây kiểm tra số lượng inventory
 task.spawn(function()
-    while wait() do
-        CA = Get('CosmeticData',true) 
-        if typeof(CA) == 'table' then
-            tong = 0
-            for i,v in pairs(CA.Inventory) do
-            tong = tong + 1
+    while true do
+        task.wait(1)
+
+        local cosmeticData = GetDataService('CosmeticData')
+        if
+            type(cosmeticData) == 'table'
+            and type(cosmeticData.Inventory) == 'table'
+        then
+            local count = 0
+            for _, _ in pairs(cosmeticData.Inventory) do
+                count = count + 1
             end
-        end
-        if tong >= soluong then
-        Savetxtconfig()
-        break
+
+            print('Số item hiện có trong Inventory:', count)
+            if count >= SOLUONG then
+                writefile(filename, 'Yummytool')
+                break
+            end
         end
     end
 end)
