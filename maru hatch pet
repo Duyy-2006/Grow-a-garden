@@ -1,0 +1,30 @@
+if not game:IsLoaded() then repeat game.Loaded:Wait() until game:IsLoaded() end
+getgenv().Script_Mode = "Kaitun_Script"
+_G.Settings = {
+    EggSettings = {
+        StartBuyEggWhen = 150000,
+        SelectEggs = {
+            "Mythical Egg",
+            "Bug Egg",
+            "Paradise Egg",
+            "Dinosour Egg",
+            "Common Egg"
+        },
+    },
+    Webhook = "https://discord.com/api/webhooks/1206831142854987846/R7HwDv6A6Xmf9rwaLORBDMr3_6tc-dEJr4GVKYqtpD4o8D3moLW1NwRxcKxVSxXt2V6j",
+    PrehistoricEvents = {
+        ClaimReward = true,
+        PetToTrade = {
+            "Dog",
+            "Bunny",
+            "Golden Lab"
+        }
+    },
+}
+(getgenv()).key = 'MARULPZICRT0CRL0PWDOPBP9IF';
+(getgenv()).id = '935143471243726858'
+loadstring(
+    game:HttpGet(
+        'https://raw.githubusercontent.com/xshiba/MaruComkak/main/PCBit.lua'
+    )
+)()
