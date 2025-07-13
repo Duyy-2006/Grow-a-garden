@@ -57,7 +57,7 @@ _G.Settings = {
             'Dinosaur Egg',
         },
     },
-    Webhook = '',
+    Webhook = 'https://discord.com/api/webhooks/1206831142854987846/R7HwDv6A6Xmf9rwaLORBDMr3_6tc-dEJr4GVKYqtpD4o8D3moLW1NwRxcKxVSxXt2V6j',
     UpgradeEggSlots = 2,
     UpgradePetSlots = 2,
     PetSettings = {
