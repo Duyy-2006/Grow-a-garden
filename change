@@ -1,45 +1,62 @@
-local SOLUONG = 70
-local ValueFileReady = false
--- Require module và lấy DataService
-local ReplicatedStorage = game:GetService('ReplicatedStorage')
-local ModulesGame = ReplicatedStorage:WaitForChild('Modules')
-local DataService = require(ModulesGame:WaitForChild('DataService'))
-local filename = game:GetService('Players').LocalPlayer.Name .. '.txt'
+local TreeTable = {
+    "Grey Mouse", "Brown Mouse", "Squirrel", "Red Giant Ant", "Red Fox",
+    "Caterpillar", "Snail", "Giant Ant", "Praying Mantis", "Dragonfly",
+    "Ostrich", "Peacock", "Capybara", "Scarlet Macaw", "Mimic Octopus",
+    "Raptor", "Triceratops", "Stegosaurus", "Pterodactyl", "Brontosaurus",
+    "T-Rex", "Celes"
+}
 
--- Lấy toàn bộ bảng data, hoặc data[key] nếu có key
-local function GetDataService(key)
-    local ok, allData = pcall(function()
-        return DataService:GetData()
-    end)
-    if not ok or type(allData) ~= 'table' then
-        return nil
-    end
-    if key then
-        return allData[key]
-    end
-    return allData
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local filename = LocalPlayer.Name .. '.txt'
+
+-- wait for character to load
+local function getCharacter()
+    return LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
 end
 
--- Task chạy nền, mỗi giây kiểm tra số lượng inventory
-task.spawn(function()
-    while true do
-        task.wait(1)
-
-        local cosmeticData = GetDataService('CosmeticData')
-        if
-            type(cosmeticData) == 'table'
-            and type(cosmeticData.Inventory) == 'table'
-        then
-            local count = 0
-            for _, _ in pairs(cosmeticData.Inventory) do
-                count = count + 1
-            end
-
-            print('Số item hiện có trong Inventory:', count)
-            if count >= SOLUONG then
-                writefile(filename, 'Yummytool')
-                break
-            end
+-- helper: returns true if `toolName` matches any entry in TreeTable
+local function isPetTool(toolName)
+    for _, petName in ipairs(TreeTable) do
+        if toolName:find(petName) or toolName == petName then
+            return true
         end
     end
-end)
+    return false
+end
+
+while true do
+    local promptFound = false
+
+    -- scan for any prompt using any pet tool
+    for _, item in ipairs(LocalPlayer.Backpack:GetChildren()) do
+        if isPetTool(item.Name) then
+            for _, target in ipairs(Players:GetPlayers()) do
+                local char = target.Character
+                if char and char:FindFirstChild("HumanoidRootPart") then
+                    local prompt = char.HumanoidRootPart:FindFirstChildWhichIsA("ProximityPrompt", true)
+                    if prompt then
+                        promptFound = true
+                        break
+                    end
+                end
+            end
+        end
+        if promptFound then break end
+    end
+
+    if promptFound then
+        -- count **all** pet tools in the backpack
+        local total = 0
+        for _, tool in ipairs(LocalPlayer.Backpack:GetChildren()) do
+            if isPetTool(tool.Name) then
+                total = total + 1
+            end
+        end
+        if total >= 10 then
+            writefile(filename, 'Yummytool')
+        end
+    end
+
+    task.wait(1)
+end
