@@ -17,8 +17,8 @@ local urls = {
     "https://raw.githubusercontent.com/Duyy-2006/Grow-a-garden/refs/heads/main/native",
     "https://raw.githubusercontent.com/Duyy-2006/Grow-a-garden/refs/heads/main/sell",
     "https://raw.githubusercontent.com/Duyy-2006/Grow-a-garden/refs/heads/main/add%20friend",
-    "https://raw.githubusercontent.com/Duyy-2006/Grow-a-garden/refs/heads/main/change",
     "https://raw.githubusercontent.com/Duyy-2006/Grow-a-garden/refs/heads/main/maru%20hatch%20pet",
+    "https://raw.githubusercontent.com/Duyy-2006/Grow-a-garden/refs/heads/main/change",
 }
 
 -- Attempt to fetch, load, and execute each module
