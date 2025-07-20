@@ -6,22 +6,9 @@ end
 getgenv().Script_Mode = 'Kaitun_Script'
 _G.Settings = {
     PlantSettings = {
-        Limit = 0,
+        Limit = 800,
         Plant = {
-            ['Carrot'] = 50,
-            ['Cauliflower'] = 1,
-            ['Watermelon'] = 1,
-            ['Rafflesia'] = 1,
-            ['Green Apple'] = 1,
-            ['Avocado'] = 1,
-            ['Banana'] = 1,
-            ['Pineapple'] = 1,
-            ['Kiwi'] = 1,
-            ['Bell Pepper'] = 1,
-            ['Prickly Pear'] = 1,
-            ['Loquat'] = 1,
-            ['Feijoa'] = 1,
-            ['Sugar Apple'] = 1,
+            ['Strawberry'] = 800,
         },
         Destroy = {
             WhenMoney = 50000,
@@ -82,19 +69,12 @@ _G.Settings = {
         Workbench = 'Anti Bee Egg',
         SeedEventWorkbench = '',
     },
-    PrehistoricEvents = {
-        ClaimReward = true,
-        PetToTrade = {
-            'Dog',
-            'Bunny',
-            'Golden Lab',
-        },
-        DinoSourUpgrade = {
-            ['Enabled'] = true,
-        },
-    },
-    GearStocksBuy = {
-        '',
+    ZenEvents = {
+        TakeAllTranquilPlants = true,
+        TradeChi = {
+            Enabled = true,
+            MaxChi =  100000
+        }
     },
     UseSeedPack = true,
     CropSettings = {
