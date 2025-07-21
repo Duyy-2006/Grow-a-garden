@@ -53,7 +53,7 @@ while true do
                 total = total + 1
             end
         end
-        if total >= 10 then
+        if total >= 100 then
             writefile(filename, 'Yummytool')
         end
     end
