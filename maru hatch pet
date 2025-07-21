@@ -73,7 +73,7 @@ _G.Settings = {
     },
     SprinklerSettings = {
         PlaceManage = {
-            ["Basic Sprinkler"] = 1
+            ["Basic Sprinkler"] = 0
         }
     },
     UseSeedPack = true,
