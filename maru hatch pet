@@ -1,84 +1,87 @@
-if not game:IsLoaded() then
-    repeat
-        game.Loaded:Wait()
-    until game:IsLoaded()
-end
-getgenv().Script_Mode = 'Kaitun_Script'
+if not game:IsLoaded() then repeat game.Loaded:Wait() until game:IsLoaded() end
+getgenv().Script_Mode = "Kaitun_Script"
 _G.Settings = {
     PlantSettings = {
         Limit = 800,
         Plant = {
-            ['Strawberry'] = 800,
+            ["Strawberry"] = 700,
+            ["Cauliflower"] = 0,
+            ["Watermelon"] = 0,
+            ["Rafflesia"] = 0,
+            ["Green Apple"] = 0,
+            ["Avocado"] = 0,
+            ["Banana"] = 0,
+            ["Pineapple"] = 0,
+            ["Kiwi"] = 0,
+            ["Bell Pepper"] = 0,
+            ["Prickly Pear"] = 0,
+            ["Loquat"] = 0,
+            ["Feijoa"] = 0,
+            ["Sugar Apple"] = 0,
         },
         Destroy = {
             WhenMoney = 50000,
             Plant = {
-                'Strawberry',
-            },
-        },
+                "Carrot"
+            }
+        }
     },
     SeedsSetting = {
-        'Carrot',
-        'Cauliflower',
-        'Watermelon',
-        'Rafflesia',
-        'Green Apple',
-        'Avocado',
-        'Banana',
-        'Pineapple',
-        'Kiwi',
-        'Bell Pepper',
-        'Prickly Pear',
-        'Loquat',
-        'Feijoa',
-        'Sugar Apple',
+        "Strawberry",
     },
     EggSettings = {
         StartBuyEggWhen = 150000,
         SelectEggs = {
-            'Mythical Egg',
-            'Bug Egg',
-            'Paradise Egg',
+            "Mythical Egg",
+            "Bug Egg",
+            "Paradise Egg"
         },
     },
-    Webhook = 'https://discord.com/api/webhooks/1206831142854987846/R7HwDv6A6Xmf9rwaLORBDMr3_6tc-dEJr4GVKYqtpD4o8D3moLW1NwRxcKxVSxXt2V6j',
-    UpgradeEggSlots = 0,
-    UpgradePetSlots = 0,
+    Webhook = "",
+    UpgradeEggSlots = 2,
+    UpgradePetSlots = 2,
     PetSettings = {
         Sell = {
-            'Dog',
+            "Dog",
         },
         UpgradeSlots = {
-            'Chicken',
-            'Rooster',
+            "Chicken", "Rooster"
         },
         Equip = {
-            'Chicken',
-            'Rooster',
+            "Chicken", "Rooster"
         },
         Lock = {
             Weight = 10,
-            Enabled = true,
-        },
+            Enabled = true
+        }
     },
     CraftSettings = {
         Enabled = true,
-        Workbench = 'Anti Bee Egg',
-        SeedEventWorkbench = '',
+        Workbench = "Anti Bee Egg",
+        SeedEventWorkbench = ""
     },
     ZenEvents = {
         TakeAllTranquilPlants = true,
         TradeChi = {
             Enabled = true,
-            MaxChi =  100000
+            MaxChi =  200000
+        }
+    },
+    StockBuy = {
+        GearStocksBuy = {""},
+        ZenItems = {""}
+    },
+    SprinklerSettings = {
+        PlaceManage = {
+            ["Basic Sprinkler"] = 1
         }
     },
     UseSeedPack = true,
     CropSettings = {
         ['DelayTime'] = 10,
-        ['TimeCrop'] = 10,
-    },
-};
+        ['TimeCrop'] = 10
+    }
+}
 getgenv().Key = "MARU-9HFI-XPU4S-T0E3-TSKJZ-AQ10"
 getgenv().id = "935143471243726858"
 getgenv().Script_Mode = "Kaitun_Script"
