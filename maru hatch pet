@@ -60,6 +60,15 @@ _G.Settings = {
         Workbench = "Anti Bee Egg",
         SeedEventWorkbench = ""
     },
+    ZenEvents = {
+        TakeAllTranquilPlants = true,
+        TradeChi = {
+            Enabled = true,
+            MaxChi =  3000
+        },
+        SubmitMonk = true,
+        SubmitFox = true
+    },
     StockBuy = {
         GearStocksBuy = {""},
         ZenItems = {""}
