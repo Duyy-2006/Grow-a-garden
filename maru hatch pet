@@ -1,14 +1,17 @@
+-- Update config : 27/7/2025
+task.wait(5)
 getgenv().ConfigsKaitun = {
 	["Block Pet Gift"] = true,
+	
 	["Low Cpu"] = true,
 	["Auto Rejoin"] = true,
+	
 	["Rejoin When Update"] = false,
 	["Limit Tree"] = {
-		["Limit"] = 300,
-		["Destroy Untill"] = 280,
+		["Limit"] = 200,
+		["Destroy Untill"] = 150,
+
 		["Safe Tree"] = {
-			"Moon Blossom",
-			"Fossilight",
 		}
 	},
 
@@ -16,30 +19,6 @@ getgenv().ConfigsKaitun = {
 		Buy = {
 			Mode = "Auto", -- Custom , Auto
 			Custom = {
-				"Carrot",
-				"Bamboo",
-				"Pumpkin",
-				"Daffodil",
-				"Orange Tulip",
-				"Watermelon",
-				"Mushroom",
-				"Avocado",
-				"Feijoa",
-				"Cauliflower",
-				"Loquat",
-				"Green Apple",
-				"Nightshade",
-				"Firefly Fern",
-				"Soft Sunshine",
-				"Zen Rocks",
-				"Hinomai",
-				"Beanstalk",
-				"Ember Lily",
-				"Sunflower",
-				"Sugar Apple",
-				"Burning Bud",
-				"Giant Pinecone",
-				"Spiked Mango",
 			}
 		},
 		Place = {
@@ -48,15 +27,6 @@ getgenv().ConfigsKaitun = {
 				"Carrot"
 			},
 			Lock = {
-				"Maple Apple",
-				"Sunflower",
-				"Dragon Pepper",
-				"Elephant Ears",
-				"Moon Melon",
-				"Easter Egg",
-				"Moon Mango",
-				"Bone Blossom",
-				"Fossilight",
 			}
 		}
 	},
@@ -71,71 +41,162 @@ getgenv().ConfigsKaitun = {
 		["Zen Event"] = {
 			["Restocking"] = { -- Minimumthing to restock
 				Max_Restocks_Price = 2_000_000_000_000,
-				Minimum_Money = 10_000_000,
-				Minimum_Chi = 10
+				Minimum_Money = 500_000,
+				Minimum_Chi = 30
 			},
 			["Doing"] = {
-				Minimum_Money = 30_000_000, -- minimum money to start play this event
-				First_Upgrade_Tree = 4,
-				Maximum_Chi = 250,
+				Minimum_Money = 1000, -- minimum money to start play this event
+				First_Upgrade_Tree = 1,
+				Maximum_Chi = 50,
 			}
 		},
 		["Traveling Shop"] = {
 			"Bee Egg",
 		},
 		Craft = {
-			"Ancient Seed Pack",
-			"Anti Bee Egg",
 			"Primal Egg",
+			"Anti Bee Egg",
+			"Small Toy",
+			"Small Treat",
+			"Ancient Seed Pack",
 		},
 		Shop = {
 			"Zen Egg",
-			"Koi",
+			"Pet Shard Tranquil",
+			"Pet Shard Corrupted",
 		},
-		Start_Do_Honey = 2_000_000 -- start trade fruit for honey at money
 	},
 
 	Gear = {
 		Buy = { 
+			"Watering Can",
+			"Trowel",
+			"Recall Wrench",
+			"Magnifying Glass",
+			"Tanning Mirror",
+			"Cleaning Spray",
+			"Favorite Tool",
+			"Harvest Tool",
+			"Friendship Pot",
 			"Master Sprinkler",
+			"Basic Sprinkler",
 			"Godly Sprinkler",
 			"Advanced Sprinkler",
-			"Basic Sprinkler",
-			"Lightning Rod",
-			"Level Up Lollipop",
-			"Medium Treat",
 			"Medium Toy",
+			"Medium Treat",
+			"Levelup Lollipop",
+			"Lightning Rod",
 		},
 		Lock = {
-			"Master Sprinkler",
 			"Godly Sprinkler",
 			"Advanced Sprinkler",
 			"Basic Sprinkler",
-			"Lightning Rod",
 		},
 	},
+
 	Eggs = {
 		Place = {
 			"Zen Egg",
-			"Primal Egg",
-			"Dinosaur Egg",
-			"Oasis Egg",
-			"Anti Bee Egg",
-			"Night Egg",
-			"Bug Egg",
+			"Mythic Egg",
+            "Bug Egg",
 			"Paradise Egg",
-			"Bee Egg",
-			"Mythical Egg",
 		},
 		Buy = {
-			"Bee Egg",
-			"Oasis Egg",
-			"Paradise Egg",
 			"Anti Bee Egg",
+			"Bee Egg",
 			"Night Egg",
-			"Rare Summer Egg",
 			"Bug Egg",
+			"Paradise Egg",
 			"Mythical Egg",
+			"Rare Egg",
+			"Rare Summer Egg",
+			"Common Summer Egg",
+		}
+	},
+
+	Pets = {
+		["Start Delete Pet At"] = 50,
+		["Upgrade Slot"] = {
+			["Pet"] = {
+				["Starfish"] = { 8, 100, 1 },
+			},
+			["Limit Upgrade"] = 5,
+			["Equip When Done"] = {
+				["Blood Kiwi"] = { 8, 100, 3 },
+				["Rooster"] = { 5, 100, 4 },
+				["Tanchozuru"] = { 8, 100, 5 },
+				["Kodama"] = { 2, 100, 1 },
+				["Corrupted Kodama"] = { 2, 100, 2 },
+			},
+		},
+		Locked_Pet_Age = 50, -- pet that age > 60 will lock
+		Locked = {
+			"Corrupted Kitsune",
+			"Raiju",
+			"Koi",
+			"Tanuki",
+			["Tanchozuru"] = 8,
+			"Kitsune",
+			"Dilophosaurus",
+			"Spinosaurus",
+			"Bear Bee",
+			"T-Rex",
+			"Brontosaurus",
+			"Disco Bee",
+			"Butterfly",
+			"Queen Bee",
+			"Dragonfly",
+			"Raccoon",
+			"Fennec Fox",
+			"Mimic Octopus",
+			"Red Fox",
+			"Blood Owl",
+			["Corrupted Kodama"] = 2,
+			["Kodama"] = 2,
+			["Starfish"] = 8,
+		},
+		LockPet_Weight = 5, -- if Weight >= 10 they will locked,
+		Instant_Sell = {		
+			"Shiba Inu",
+		}
+	},
+
+	Webhook = {
+		UrlPet = "XXX",
+		UrlSeed = "XXX",
+		PcName = "LUCKY-AYAYA",
+
+		Noti = {
+			Seeds = {
+				"Sunflower",
+				"Dragon Pepper",
+				"Elephant Ears",
+				"Bone Blossom",
+				"Dragon Sapling",
+                "Maple Apple",
+			},
+			SeedPack = {
+				"Idk"
+			},
+			Pets = {
+				"Tanchozuru",
+				"Kitsune",
+				"Kappa",
+				"T-Rex",
+				"Brontosaurus",
+				"Disco Bee",
+				"Butterfly",
+				"Mimic Octopus",
+				"Fennec Fox",
+				"Queen Bee",
+				"Dragonfly",
+				"Raccoon",
+				"Red Fox",
+				"Dilophosaurus",
+				"Ankylosaurus",
+				"Spinosaurus",
+			},
+			Pet_Weight_Noti = true,
 		}
 	},
 }
