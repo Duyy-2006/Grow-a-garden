@@ -1,90 +1,146 @@
-if not game:IsLoaded() then repeat game.Loaded:Wait() until game:IsLoaded() end
-getgenv().Script_Mode = "Kaitun_Script"
-_G.Settings = {
-    PlantSettings = {
-        Limit = 800,
-        Plant = {
-            ["Strawberry"] = 800,
-            ["Cauliflower"] = 0,
-            ["Watermelon"] = 0,
-            ["Rafflesia"] = 0,
-            ["Green Apple"] = 0,
-            ["Avocado"] = 0,
-            ["Banana"] = 0,
-            ["Pineapple"] = 0,
-            ["Kiwi"] = 0,
-            ["Bell Pepper"] = 0,
-            ["Prickly Pear"] = 0,
-            ["Loquat"] = 0,
-            ["Feijoa"] = 0,
-            ["Sugar Apple"] = 0,
-        },
-        Destroy = {
-            WhenMoney = 50000,
-            Plant = {
-                "Carrot"
-            }
-        }
-    },
-    SeedsSetting = {
-        "Strawberry",
-    },
-    EggSettings = {
-        StartBuyEggWhen = 150000,
-        SelectEggs = {
-            "Mythical Egg",
-            "Bug Egg",
-            "Paradise Egg"
-        },
-    },
-    Webhook = "",
-    UpgradeEggSlots = 2,
-    UpgradePetSlots = 2,
-    PetSettings = {
-        Sell = {
-            "Dog",
-        },
-        UpgradeSlots = {
-            "Chicken", "Rooster"
-        },
-        Equip = {
-            "Chicken", "Rooster"
-        },
-        Lock = {
-            Weight = 10,
-            Enabled = true
-        }
-    },
-    CraftSettings = {
-        Enabled = true,
-        Workbench = "Anti Bee Egg",
-        SeedEventWorkbench = ""
-    },
-    ZenEvents = {
-        TakeAllTranquilPlants = true,
-        TradeChi = {
-            Enabled = true,
-            MaxChi =  3000
-        },
-        SubmitMonk = true,
-        SubmitFox = true
-    },
-    StockBuy = {
-        GearStocksBuy = {""},
-        ZenItems = {""}
-    },
-    SprinklerSettings = {
-        PlaceManage = {
-            ["Basic Sprinkler"] = 0
-        }
-    },
-    UseSeedPack = true,
-    CropSettings = {
-        ['DelayTime'] = 10,
-        ['TimeCrop'] = 10
-    }
+getgenv().ConfigsKaitun = {
+	["Block Pet Gift"] = true,
+	["Low Cpu"] = true,
+	["Auto Rejoin"] = true,
+
+	["Rejoin When Update"] = false,
+	["Limit Tree"] = {
+		["Limit"] = 200,
+		["Destroy Untill"] = 150,
+
+		["Safe Tree"] = {
+			"Moon Blossom",
+			"Fossilight",
+		}
+	},
+
+	Seed = {
+		Buy = {
+			Mode = "Auto", -- Custom , Auto
+			Custom = {
+				"Carrot",
+				"Bamboo",
+				"Pumpkin",
+				"Daffodil",
+				"Orange Tulip",
+				"Watermelon",
+				"Mushroom",
+				"Avocado",
+				"Feijoa",
+				"Cauliflower",
+				"Loquat",
+				"Green Apple",
+				"Nightshade",
+				"Firefly Fern",
+				"Soft Sunshine",
+				"Zen Rocks",
+				"Hinomai",
+				"Beanstalk",
+				"Ember Lily",
+				"Sunflower",
+				"Sugar Apple",
+				"Burning Bud",
+				"Giant Pinecone",
+				"Spiked Mango",
+			}
+		},
+		Place = {
+			Mode = "Lock", -- Select , Lock
+			Select = {
+				"Carrot"
+			},
+			Lock = {
+				"Maple Apple",
+				"Sunflower",
+				"Dragon Pepper",
+				"Elephant Ears",
+				"Moon Melon",
+				"Easter Egg",
+				"Moon Mango",
+				"Bone Blossom",
+				"Fossilight",
+			}
+		}
+	},
+
+	["Seed Pack"] = {
+		Locked = {
+
+		}
+	},
+
+	Events = {
+		["Zen Event"] = {
+			["Restocking"] = { -- Minimumthing to restock
+				Max_Restocks_Price = 50_000_000,
+				Minimum_Money = 10_000_000,
+				Minimum_Chi = 30
+			},
+			["Doing"] = {
+				Minimum_Money = 30_000_000, -- minimum money to start play this event
+				First_Upgrade_Tree = 4,
+				Maximum_Chi = 250,
+			}
+		},
+		["Traveling Shop"] = {
+			"Bee Egg",
+		},
+		Craft = {
+			"Primal Egg",
+			"Anti Bee Egg",
+		},
+		Shop = {
+			"Zen Egg",
+			"Koi",
+		},
+		Start_Do_Honey = 2_000_000 -- start trade fruit for honey at money
+	},
+
+	Gear = {
+		Buy = { 
+			"Master Sprinkler",
+			"Godly Sprinkler",
+			"Advanced Sprinkler",
+			"Basic Sprinkler",
+			"Lightning Rod",
+			"Level Up Lollipop",
+			"Medium Treat",
+			"Medium Toy",
+		},
+		Lock = {
+			"Master Sprinkler",
+			"Godly Sprinkler",
+			"Advanced Sprinkler",
+			"Basic Sprinkler",
+			"Lightning Rod",
+		},
+	},
+
+	Eggs = {
+		Place = {
+			"Zen Egg",
+			"Primal Egg",
+			"Dinosaur Egg",
+			"Oasis Egg",
+			"Anti Bee Egg",
+			"Night Egg",
+			"Bug Egg",
+			"Paradise Egg",
+			"Mythical Egg",
+		},
+		Buy = {
+			"Bee Egg",
+			"Oasis Egg",
+			"Paradise Egg",
+			"Anti Bee Egg",
+			"Night Egg",
+			"Rare Summer Egg",
+			"Bug Egg",
+			"Mythical Egg",
+			"Common Egg",
+		}
+	},
 }
-getgenv().Key = "MARU-9HFI-XPU4S-T0E3-TSKJZ-AQ10"
-getgenv().id = "935143471243726858"
-getgenv().Script_Mode = "Kaitun_Script"
-loadstring(game:HttpGet("https://raw.githubusercontent.com/xshiba/MaruBitkub/main/Mobile.lua"))()
+License = "YNWFCAU7Qc1jMzRSyiIasivXrzcTRv98"
+
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Real-Aya/Loader/main/Init.lua'))()
