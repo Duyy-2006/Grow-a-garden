@@ -98,7 +98,7 @@ getgenv().ConfigsKaitun = {
 		Place = {
 			"Zen Egg",
 			"Mythic Egg",
-            "Bug Egg",
+                        "Bug Egg",
 			"Paradise Egg",
 		},
 		Buy = {
