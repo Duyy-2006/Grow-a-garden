@@ -1,4 +1,5 @@
 task.wait(5)
+setfpscap(3)
 getgenv().ConfigsKaitun = {
 	["Block Pet Gift"] = true,
 	
