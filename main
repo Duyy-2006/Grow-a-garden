@@ -13,7 +13,6 @@ local JobId           = game.JobId
 -- List of module URLs to load
 
 local urls = {
-    "https://raw.githubusercontent.com/Duyy-2006/Grow-a-garden/refs/heads/main/maru%20hatch%20pet",
     "https://raw.githubusercontent.com/Duyy-2006/Grow-a-garden/refs/heads/main/cosmetic",
     "https://raw.githubusercontent.com/Duyy-2006/Grow-a-garden/refs/heads/main/low%20fps",
     "https://raw.githubusercontent.com/Duyy-2006/Grow-a-garden/refs/heads/main/native",
