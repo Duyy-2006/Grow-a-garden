@@ -55,23 +55,6 @@ getgenv().ConfigsKaitun = {
 		["Cook Event"] = {
 			Minimum_Money = 30_000_000, -- minimum money to start play this event
 		},
-		["Zen Event"] = {
-			["Restocking"] = { -- Minimumthing to restock
-				Max_Restocks_Price = 50_000_000,
-				Minimum_Money = 10_000_000,
-				Minimum_Chi = 200
-			},
-			["Doing"] = {
-				Minimum_Money = 30_000_000, -- minimum money to start play this event
-				First_Upgrade_Tree = 4,
-				Maximum_Chi = 250,
-
-				-- // thing to skip doing
-				Skip_Fox = false, -- Skip The Middle Fox Trade (Corrupted Kitsune)
-				Skip_Corrupted_OldMan = false, -- Skip The OldMan Trade (Kodama)
-				-- If u need to skip Tranquill OldMan Set "First Upgrade Tree" To 0 and Max Chi To 99999
-			}
-		},
 		["Traveling Shop"] = {
 			"Bee Egg",
 		},
@@ -82,6 +65,7 @@ getgenv().ConfigsKaitun = {
 		},
 		Shop = {
 			"Zen Egg",
+			"Raiju",
 		},
 		Start_Do_Honey = 2_000_000 -- start trade fruit for honey at money
 	},
@@ -124,7 +108,7 @@ getgenv().ConfigsKaitun = {
 	},
 
 	Pets = {
-		["Start Delete Pet At"] = 40,
+		["Start Delete Pet At"] = 100,
 		["Upgrade Slot"] = {
 			["Pet"] = {
 				["Starfish"] = { 5, 100, 1, true }, -- the "true" on the last is auto equip (use for like only need to use for upgrade pet)
@@ -142,31 +126,6 @@ getgenv().ConfigsKaitun = {
 		Favorite_LockedPet = true,
 		Locked_Pet_Age = 60, -- pet that age > 60 will lock
 		Locked = {
-			"French Fry Ferret",
-			"Spaghetti Sloth",
-			"Corrupted Kitsune",
-			"Raiju",
-			"Koi",
-			"Tanuki",
-			"Tanchozuru",
-			"Kappa",
-			"Kitsune",
-			"Dilophosaurus",
-			"Moon Cat",
-			"Capybara",
-			"Spinosaurus",
-			"Bear Bee",
-			"T-Rex",
-			"Brontosaurus",
-			"Disco Bee",
-			"Butterfly",
-			"Queen Bee",
-			"Dragonfly",
-			"Raccoon",
-			"Fennec Fox",
-			"Mimic Octopus",
-			"Red Fox",
-			"Blood Owl",
 			["Starfish"] = 10,
 		},
 		LockPet_Weight = 7, -- if Weight >= 10 they will locked
