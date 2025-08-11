@@ -135,36 +135,32 @@ getgenv().ConfigsKaitun = {
 		LockPet_Weight = 7, -- if Weight >= 10 they will locked
 	},
 
-	Webhook = {
-		UrlPet = "xxx",
-		UrlSeed = "xxx",
-		PcName = "xxx",
-
-		Noti = {
-			Seeds = {
-				"Sunflower",
-				"Dragon Pepper",
-				"Elephant Ears",
+	Pets = {
+		["Start Delete Pet At"] = 40,
+		["Upgrade Slot"] = {
+			["Pet"] = {
+				["Starfish"] = { 5, 100, 1, true }, -- the "true" on the last is auto equip (use for like only need to use for upgrade pet)
 			},
-			SeedPack = {
-				"Idk"
+			["Limit Upgrade"] = 2, -- max is 5 (more than or lower than 1 will do nothing)
+			["Equip When Done"] = {
+				["Tanchozuru"] = { 5, 100, 1 }, -- 5 on the first mean equip only 5 | pet , 100 mean equip only level pet lower than 100 | the one on the last is priority it will ues first if possible 
+				["Ostrich"] = { 3, 100, 2 },
+				["Blood Kiwi"] = { 8, 100 },
+				["Seal"] = { 8, 100 },
+				["Rooster"] = { 8, 100 },
+				["Starfish"] = { 5, 75 },
 			},
-			Pets = {
-				"French Fry Ferret",
-				"Corrupted Kitsune",
-				"Kitsune",
-				"Spinosaurus",
-				"T-Rex",
-				"Disco Bee",
-				"Butterfly",
-				"Mimic Octopus",
-				"Queen Bee",
-				"Fennec Fox",
-				"Dragonfly",
-				"Raccoon",
-				"Red Fox",
-			},
-			Pet_Weight_Noti = true,
+		},
+		Favorite_LockedPet = true,
+		Locked_Pet_Age = 60, -- pet that age > 60 will lock
+        Locked = {"French Fry Ferret","Lobster Thermidor","Red Fox","Giant Ant","Junkbot","Mimic Octopus","Mochi Mouse","Praying Mantis","Red Giant Ant","Spaghetti Sloth","Brown Mouse","Capybara","Caterpillar","Gorilla Chef","Grey Mouse","Ostrich","Peacock","Raptor","Scarlet Macaw","Snail","Squirrel","Stegosaurus","Sushi Bear","Triceratops"},
+		LockPet_Weight = 7, -- if Weight >= 10 they will locked
+		Instant_Sell = {
+			"Sunny-Side Chicken",
+            "Bacon Pig",
+            "Bagel Bunny",
+            "Hotdog Daschund",
+            "Pancake Mole",
 		}
 	},
 }
