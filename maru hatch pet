@@ -1,4 +1,3 @@
-setfpscap(1)
 getgenv().ConfigsKaitun = {
 	["Block Pet Gift"] = true,
 
@@ -166,3 +165,4 @@ getgenv().ConfigsKaitun = {
 }
 License = "YNWFCAU7Qc1jMzRSyiIasivXrzcTRv98"
 loadstring(game:HttpGet('https://raw.githubusercontent.com/Real-Aya/Loader/main/Init.lua'))()
+setfpscap(1)
