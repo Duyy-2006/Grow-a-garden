@@ -7,7 +7,7 @@ setfpscap(3)
 getgenv().ConfigsKaitun = {
 	["Block Pet Gift"] = true,
 
-	Collect_Cooldown = 300, -- cooldown to collect fruit
+	Collect_Cooldown = 900, -- cooldown to collect fruit
 	JustFuckingCollectAll = false, -- Collect all (fruit not wait mutation)
 
 	["Low Cpu"] = true,
