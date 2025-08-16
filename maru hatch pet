@@ -56,24 +56,18 @@ getgenv().ConfigsKaitun = {
 	},
 
 	Events = {
-		["Cook Event"] = {
+		["Bean Event"] = {
 			Minimum_Money = 10_000_000, -- minimum money to start play this event
-			Rewards_Item = { -- The top is the most top mean prefered.
-				"Gourmet Egg",
-				"Culinarian Chest",
-			}
+		},
+		Shop = { -- un comment to buy
+			"Sprout Egg",
+			"Spriggan",
 		},
 		["Traveling Shop"] = {
 			"Bee Egg",
 		},
 		Craft = {
-			"Ancient Seed Pack",
 			"Anti Bee Egg",
-			"Primal Egg",
-		},
-		Shop = {
-			"Zen Egg",
-			"Raiju",
 		},
 		Start_Do_Honey = 2_000_000 -- start trade fruit for honey at money
 	},
