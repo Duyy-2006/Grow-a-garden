@@ -165,6 +165,8 @@ getgenv().ConfigsKaitun = {
             "Bagel Bunny",
             "Hotdog Daschund",
             "Pancake Mole",
+            "Dairy Cow",
+            "Jackalope",
 		}
 	},
 }
