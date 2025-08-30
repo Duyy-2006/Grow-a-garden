@@ -11,7 +11,7 @@ getgenv().ConfigsKaitun = {
 	JustFuckingCollectAll = false, -- Collect all (fruit not wait mutation)
 
 	["Low Cpu"] = true,
-	["Auto Rejoin"] = true,
+	["Auto Rejoin"] = false,
 
 	["Rejoin When Update"] = false,
 	["Limit Tree"] = {
