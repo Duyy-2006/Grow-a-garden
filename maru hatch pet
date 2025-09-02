@@ -108,9 +108,9 @@ getgenv().ConfigsKaitun = {
 					"Fairy Event Duration",
 				},
 				Limit = {
-					["Glimmer Multiplier"] = 5, -- max 10
+					["Glimmer Multiplier"] = 10, -- max 10
 					["Loose Fairy Spawn Amount"] = 4, -- max 4
-					["Fairy Event Duration"] = 5, -- max 10
+					["Fairy Event Duration"] = 10, -- max 10
 					["Fairy Spawn Amount"] = 9, -- max 9
 				}
 			}
@@ -169,9 +169,11 @@ getgenv().ConfigsKaitun = {
 		}
 	},
 
-	Pets = {
+	Pets = { 
+        ["Auto Feed"] = true,
 		["Start Delete Pet At"] = 40,
 		["Upgrade Slot"] = {
+            ["Little Auto Equip"] = false,
 			["Pet"] = {
 				["Starfish"] = { 5, 100, 1, true },-- the "true" on the last is auto equip (use for like only need to use for upgrade pet)
                 ["Gorilla Chef"] = {5, 100,2, true},
