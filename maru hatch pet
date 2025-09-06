@@ -126,7 +126,11 @@ getgenv().ConfigsKaitun = {
 			"Bee Egg",
 		},
 		Craft = {
-			"Anti Bee Egg",
+			"Enchanted Chest",
+			"Fairy Net",
+			"Enchanted Egg",
+			"Sprout Egg",
+            "Skyroot Chest",
 		},
 		Start_Do_Honey = 2_000_000 -- start trade fruit for honey at money
 	},
