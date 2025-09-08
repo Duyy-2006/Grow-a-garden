@@ -1,9 +1,5 @@
 local TreeTable = {
-    "Grey Mouse", "Brown Mouse", "Squirrel", "Red Giant Ant", "Red Fox",
-    "Caterpillar", "Snail", "Giant Ant", "Praying Mantis", "Dragonfly",
-    "Ostrich", "Peacock", "Capybara", "Scarlet Macaw", "Mimic Octopus",
-    "Raptor", "Triceratops", "Stegosaurus", "Pterodactyl", "Brontosaurus",
-    "T-Rex", "Celes"
+    "Cockatrice", "French","Golden Goose", "Lobster", "Red Fox",
 }
 
 local Players = game:GetService("Players")
