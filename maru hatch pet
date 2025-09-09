@@ -173,6 +173,8 @@ getgenv().ConfigsKaitun = {
 			"Bug Egg",
 			"Mythical Egg",
             "Common Summer Egg",
+            "Rare Egg",
+            "Common Egg",
 		}
 	},
 
