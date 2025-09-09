@@ -156,7 +156,8 @@ getgenv().ConfigsKaitun = {
 
 	Eggs = {
 		Place = {
-            "Common Summer Egg",
+            "Rare Egg",
+            "Common Egg",
             "Enchanted Egg",
             "Sprout Egg",
 			"Gourmet Egg",
@@ -181,8 +182,9 @@ getgenv().ConfigsKaitun = {
 		["Upgrade Slot"] = {
             ["Little Auto Equip"] = false,
 			["Pet"] = {
-				["Ostrich"] = { 5, 100, 1, true },-- the "true" on the last is auto equip (use for like only need to use for upgrade pet)
-                ["Capybara"] = {5, 100,2, true},
+				["Chicken"] = { 5, 100, 1, true },-- the "true" on the last is auto equip (use for like only need to use for upgrade pet)
+                ["Capybara"] = {1, 100,2, true},
+                ["Rooster"] = {2, 100,3, true},
 			},
 			["Limit Upgrade"] = 5, -- max is 5 (more than or lower than 1 will do nothing)
 			["Equip When Done"] = {
@@ -204,6 +206,13 @@ getgenv().ConfigsKaitun = {
             "Crab",
             "Elk", 
             "Ladybug",
+            "Orange Tabby",
+            "Spotted Deer", 
+            "Pig",
+            "Monkey",
+            "Black Bunyy",
+            "Cat",
+            "Deer",
 		}
 	},
 }
