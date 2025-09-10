@@ -3,6 +3,12 @@ if not game:IsLoaded() then
         game.Loaded:Wait()
     until game:IsLoaded()
 end
+for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+    if v:GetAttribute('d') then
+        print('Unfav : ',v.Name)
+        game:GetService("ReplicatedStorage"):WaitForChild("GameEvents"):WaitForChild("Favorite_Item"):FireServer(v)
+    end
+end
 setfpscap(3)
 getgenv().ConfigsKaitun = {
 	["Block Pet Gift"] = true,
