@@ -180,7 +180,7 @@ getgenv().ConfigsKaitun = {
 
 	Pets = { 
         ["Auto Feed"] = true,
-		["Start Delete Pet At"] = 40,
+		["Start Delete Pet At"] = 55,
 		["Upgrade Slot"] = {
             ["Little Auto Equip"] = false,
 			["Pet"] = {
@@ -194,7 +194,7 @@ getgenv().ConfigsKaitun = {
 		},
 		Favorite_LockedPet = true,
 		Locked_Pet_Age = 100, -- pet that age > 60 will lock
-        Locked = {"French Fry Ferret","Lobster Thermidor","Red Fox","Giant Ant","Junkbot","Mimic Octopus","Mochi Mouse","Praying Mantis","Red Giant Ant","Spaghetti Sloth","Brown Mouse","Capybara","Caterpillar","Gorilla Chef","Grey Mouse","Ostrich","Peacock","Raptor","Scarlet Macaw","Snail","Squirrel","Stegosaurus","Sushi Bear","Triceratops"},
+        Locked = {"French Fry Ferret","Lobster Thermidor","Red Fox","Mimic Octopus","Phoenix","Cockatrice",},
 		LockPet_Weight = 7, -- if Weight >= 10 they will locked
 		Instant_Sell = {
 			"Sunny-Side Chicken",
