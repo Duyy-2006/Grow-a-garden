@@ -1,108 +1,222 @@
-soluong = 2
-local function Savetxtconfig(log)
-    log = log or 'Yummytool'
-    local filename = 'Yummy.txt'
-
-    if writefile then
-        print('Kiểm Tra WriteFile')
-
-        if isfile(filename) then
-            if ValueFileReady then
-                return
-            end
-            print('File Đã Có Trong Workspace')
-        else
-            writefile(filename, log)
-        end
-        ValueFileReady = true
-    end
+if not game:IsLoaded() then
+    repeat
+        game.Loaded:Wait()
+    until game:IsLoaded()
 end
+setfpscap(3)
+getgenv().ConfigsKaitun = {
+	["Block Pet Gift"] = true,
 
-ReplicatedStorage = game:GetService('ReplicatedStorage')
-ModulesGame = ReplicatedStorage.Modules
-DataService = require(ModulesGame.DataService)
-GetDataService = function(data)
-    if not DataService then
-        return nil
-    end
-    local dataservicetable = DataService:GetData()
-    if data then
-        return dataservicetable and dataservicetable[data] or nil
-    end
-    return dataservicetable
-end
-Get = function(data, data1, data2)
-    if data1 == true then
-        local dataGet = GetDataService()[data]
-        local Storage = {}
-        if dataGet and typeof(dataGet) == 'table' then
-            for i, v in pairs(dataGet) do
-                if data2 then
-                    table.insert(Storage, tostring(i))
-                else
-                    Storage[i] = v
-                end
-            end
-        end
-        return Storage
-    end
-    return nil
-end
+	Collect_Cooldown = 300, -- cooldown to collect fruit
+	JustFuckingCollectAll = false, -- Collect all (fruit not wait mutation)
 
-task.spawn(function()
-    while wait() do
-        CA = Get('SeedStock', true)
-        if typeof(CA) == 'table' then
-            for i, v in pairs(CA.Stocks) do
-                if v.Stock and tonumber(v.Stock) and v.Stock > 0 then
-                    for z = 1, v.Stock do
-                        game
-                            :GetService('ReplicatedStorage')
-                            :WaitForChild('GameEvents')
-                            :WaitForChild('BuySeedStock')
-                            :FireServer(i)
-                    end
-                end
-            end
-        end
-        wait(1)
-    end
-end)
+	["Low Cpu"] = true,
+	["Auto Rejoin"] = false,
 
-task.spawn(function()
-    while wait() do
-        CA = Get('PetEggStock', true)
-        if typeof(CA) == 'table' then
-            for i, v in pairs(CA.Stocks) do
-                if v.Stock and tonumber(v.Stock) and v.Stock > 0 then
-                    game
-                        :GetService('ReplicatedStorage')
-                        :WaitForChild('GameEvents')
-                        :WaitForChild('BuyPetEgg')
-                        :FireServer(i)
-                end
-            end
-        end
-        wait(1)
-    end
-end)
+	["Rejoin When Update"] = false,
+	["Limit Tree"] = {
+		["Limit"] = 300,
+		["Destroy Untill"] = 280,
 
-task.spawn(function()
-    while wait() do
-        CA = Get('GearStock', true)
-        if typeof(CA) == 'table' then
-            for i, v in pairs(CA.Stocks) do
-                if v.Stock and tonumber(v.Stock) and v.Stock > 0 then
-                    for z = 1, v.Stock do
-                        game
-                            :GetService('ReplicatedStorage')
-                            :WaitForChild('GameEvents')
-                            :WaitForChild('BuyGearStock')
-                            :FireServer(i)
-                    end
-                end
-            end
-        end
-        wait(1)
-    end
-end)
+		["Safe Tree"] = {
+			"Moon Blossom",
+			"Bone Blossom",
+			"Moon Melon",
+			"Maple Apple",
+			"Moon Mango",
+			"Dragon Pepper",
+			"Elephant Ears",
+			"Fossilight",
+			"Princess Thorn",
+			-- for the event
+			Bamboo = 2,
+			Coconut = 2,
+			Mushroom = 2,
+			Glowthorn = 2,
+			Tomato = 2,
+			Pumpkin = 2,
+			Pepper = 2,
+			Cacao = 2,
+			Apple = 2,
+			Romanesco = 2,
+			["Elder Strawberry"] = 2,
+			["Burning Bud"] = 2,
+			["Giant Pinecone"] = 2,
+			Corn = 2,
+			["Sugar Apple"] = 2,
+			["Ember Lily"] = 2,
+			["Dragon Fruit"] = 2,
+			Sunbulb = 2,
+			["Orange Tulip"] = 2,
+			Blueberry = 2,
+			Watermelon = 2,
+			Mango = 2,
+			Cactus = 2,
+			Strawberry = 2,
+			Beanstalk = 2,
+			Lightshoot = 2,
+			Grape = 2,
+			Daffodil = 2,
+		}
+	},
+
+	Seed = {
+		Buy = {
+			Mode = "Auto", -- Custom , Auto
+			Custom = { -- any fruit u need to place
+				"Carrot",
+			}
+		},
+		Place = {
+			Mode = "Lock", -- Select , Lock
+			Select = {
+				"Carrot"
+			},
+			Lock = {
+				"Maple Apple",
+				"Sunflower",
+				"Dragon Pepper",
+				"Elephant Ears",
+				"Moon Melon",
+				"Easter Egg",
+				"Moon Mango",
+				"Bone Blossom",
+				"Fossilight",
+			}
+		}
+	},
+
+	["Seed Pack"] = {
+		Locked = {
+
+		}
+	},
+
+	Events = {
+		["Fairy Event"] = {
+			Minimum_Money = 10_000_000, -- minimum money to start play this event
+			Rewards_Item = {
+				"FairyPoints",
+				"Enchanted Egg",
+			},
+			Upgrade = {
+				Mode = "Order", -- Order (mean will up on order), Chepest, Highest
+				Order = { -- top upgrade first, not put mean not upgrade
+					"Fairy Spawn Amount",
+					"Loose Fairy Spawn Amount",
+					"Glimmer Multiplier",
+					"Fairy Event Duration",
+				},
+				Limit = {
+					["Glimmer Multiplier"] = 10, -- max 10
+					["Loose Fairy Spawn Amount"] = 4, -- max 4
+					["Fairy Event Duration"] = 10, -- max 10
+					["Fairy Spawn Amount"] = 9, -- max 9
+				}
+			}
+		},
+		MaxMoney_Restocks = 10_000_000_000,
+		Shop = { -- un comment to buy
+			"Enchanted Chest",
+			"Enchanted Egg",
+			"Sprout Egg",
+			"Skyroot Chest",
+		},
+		["Traveling Shop"] = {
+			"Bee Egg",
+			"Paradise Egg", 
+			"Rare Summer Egg", 
+			"Common Summer Egg"
+		},
+		Craft = {
+			"Enchanted Chest",
+			"Fairy Net",
+			"Enchanted Egg",
+			"Sprout Egg",
+            "Skyroot Chest",
+		},
+		Start_Do_Honey = 2_000_000 -- start trade fruit for honey at money
+	},
+
+	Gear = {
+		Buy = { 
+			"Master Sprinkler",
+			"Godly Sprinkler",
+			"Advanced Sprinkler",
+			"Basic Sprinkler",
+			"Lightning Rod",
+			"Level Up Lollipop",
+			"Medium Treat",
+			"Medium Toy",
+            "Grandmaster Sprinkler",
+		},
+		Lock = {
+		},
+	},
+
+	Eggs = {
+		Place = {
+            "Rare Egg",
+            "Uncommon Egg",
+            "Enchanted Egg",
+            "Sprout Egg",
+			"Gourmet Egg",
+			"Zen Egg",
+			"Mythical Egg",
+            "Bug Egg",
+			"Paradise Egg",
+		},
+		Buy = {
+			"Paradise Egg",
+			"Anti Bee Egg",
+			"Night Egg",
+			"Bug Egg",
+			"Mythical Egg",
+            "Common Summer Egg",
+            "Rare Egg",
+            "Uncommon Egg",
+		}
+	},
+
+	Pets = { 
+        ["Auto Feed"] = true,
+		["Start Delete Pet At"] = 50,
+		["Upgrade Slot"] = {
+            ["Little Auto Equip"] = false,
+			["Pet"] = {
+				["Chicken"] = { 5, 100, 1, true },-- the "true" on the last is auto equip (use for like only need to use for upgrade pet)
+                ["Capybara"] = {1, 100,2, true},
+                ["Rooster"] = {2, 100,3, true},
+			},
+			["Limit Upgrade"] = 5, -- max is 5 (more than or lower than 1 will do nothing)
+			["Equip When Done"] = {
+			},
+		},
+		Favorite_LockedPet = true,
+		Locked_Pet_Age = 100, -- pet that age > 60 will lock
+        Locked = {"French Fry Ferret","Lobster Thermidor","Red Fox","Mimic Octopus","Phoenix","Cockatrice",},
+		LockPet_Weight = 7, -- if Weight >= 10 they will locked
+		Instant_Sell = {
+			"Sunny-Side Chicken",
+            "Bacon Pig",
+            "Bagel Bunny",
+            "Hotdog Daschund",
+            "Pancake Mole",
+            "Dairy Cow",
+            "Jackalope",
+            "Seagull", 
+            "Crab",
+            "Elk", 
+            "Ladybug",
+            "Orange Tabby",
+            "Spotted Deer", 
+            "Pig",
+            "Monkey",
+            "Black Bunyy",
+            "Cat", "Dog", "Bunny", "Golden Lab",
+            "Deer", "Brown Mouse", "Bunny", "Cardinal", "Caterpillar", "Dog", "Golden Lab", " Grey Mouse", "Ostrich", "Peacock", "Pixie", "Snail", "Sushi Bear",
+		}
+	},
+}
+License = "YNWFCAU7Qc1jMzRSyiIasivXrzcTRv98"
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Real-Aya/Loader/main/Init.lua'))()
