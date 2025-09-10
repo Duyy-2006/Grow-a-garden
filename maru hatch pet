@@ -200,7 +200,7 @@ getgenv().ConfigsKaitun = {
 		},
 		Favorite_LockedPet = true,
 		Locked_Pet_Age = 100, -- pet that age > 60 will lock
-        Locked = {"French Fry Ferret","Lobster Thermidor","Red Fox","Mimic Octopus","Phoenix","Cockatrice","Golden Goose",},
+        Locked = {"French Fry Ferret","Lobster Thermidor","Red Fox","Mimic Octopus","Phoenix","Cockatrice","Golden Goose","Dragonfly",},
 		LockPet_Weight = 7, -- if Weight >= 10 they will locked
 		Instant_Sell = {
 			"Sunny-Side Chicken",
