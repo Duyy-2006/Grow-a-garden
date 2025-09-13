@@ -186,7 +186,7 @@ getgenv().ConfigsKaitun = {
 
 	Pets = { 
         ["Auto Feed"] = true,
-		["Start Delete Pet At"] = 20,
+		["Start Delete Pet At"] = 50,
 		["Upgrade Slot"] = {
             ["Little Auto Equip"] = false,
 			["Pet"] = {
