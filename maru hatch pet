@@ -222,7 +222,7 @@ getgenv().ConfigsKaitun = {
             "Monkey",
             "Black Bunyy",
             "Cat", "Dog", "Bunny", "Golden Lab", "Black Bunny",
-            "Deer", "Brown Mouse", "Bunny", "Cardinal", "Caterpillar", "Dog", "Golden Lab", " Grey Mouse", "Ostrich", "Peacock", "Pixie", "Snail", "Sushi Bear",
+            "Deer", "Brown Mouse", "Bunny", "Cardinal", "Caterpillar", "Dog", "Golden Lab", " Grey Mouse", "Ostrich", "Peacock", "Pixie", "Snail", "Sushi Bear", "Badger", "Robin",
 		}
 	},
 }
